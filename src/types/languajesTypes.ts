@@ -8,6 +8,6 @@ export type Repository = {
     name: string
     description: string,
     languaje: string,
-    stars: number,
-    forks: number,
+    stargazers_count: number,
+    forks_count: number,
 }
