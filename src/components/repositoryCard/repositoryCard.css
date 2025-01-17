@@ -5,7 +5,7 @@
     padding: 20px;
     
     width: 30%;
-    height: 65%;
+    height: fit-content;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -24,3 +24,52 @@
     width: 100%;
 }
 
+.card__repository{
+    background-color: rgb(243, 243, 243);
+    position: relative;
+    width: 100%;
+    padding: 10px;
+    height: fit-content;
+    border-radius: 10px;
+
+}
+
+.card__repository h1{
+    font-size: 1rem;
+    position: absolute;
+    top: 0;
+    margin: 0;
+    margin-top: 10px;
+
+}
+
+.repository__info{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.circle{
+    background-color: black;
+    border-radius: 100%;
+    width: 7px;
+    height: 7px;
+}
+
+.repository__description{
+    font-size: 1rem;
+    font-weight: normal;
+    color: rgb(167, 167, 167);
+    margin-top: 7%;
+}
+
+.languaje_circle{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.languaje_circle p, div{
+    font-size: 1rem;
+    font-weight: normal;
+}
