@@ -13,29 +13,33 @@ export function LoadedRepository({randomIndex, repository, selectedLanguaje}:Loa
 
 
     return (
-        <div className="repository__info">
-            <div>
-                <h1>{repository[randomIndex].full_name}</h1>
-                <p className="repository__description">{repository[randomIndex].description}</p>
-            </div>
-
-            <div className='repository__Bottom'>
-                <div className="languaje_circle">
-                    <div className="circle"></div>
-                    <p>{selectedLanguaje}</p>
+        <>
+            <div className="repository__info">
+                <div>
+                    <h1>{repository[randomIndex].full_name}</h1>
+                    <p className="repository__description">{repository[randomIndex].description}</p>
                 </div>
     
-                <div className="iconContainer">
-                    <div className="icon">
-                        <img src={starIcon} alt="Star Icon" />
-                        <span>{repository[randomIndex].stargazers_count}</span>
+                <div className='repository__Bottom'>
+                    <div className="languaje_circle">
+                        <div className="circle"></div>
+                        <p>{selectedLanguaje}</p>
                     </div>
-                    <div className="icon">
-                        <img src={forkIcon} alt="Fork Icon" />
-                        <span>{repository[randomIndex].forks_count}</span>
+        
+                    <div className="iconContainer">
+                        <div className="icon">
+                            <img src={starIcon} alt="Star Icon" />
+                            <span>{repository[randomIndex].stargazers_count}</span>
+                        </div>
+                        <div className="icon">
+                            <img src={forkIcon} alt="Fork Icon" />
+                            <span>{repository[randomIndex].forks_count}</span>
+                        </div>
                     </div>
                 </div>
+    
             </div>
-        </div>
+        </>
+
     );
 }

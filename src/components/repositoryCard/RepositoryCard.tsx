@@ -1,6 +1,7 @@
 import './repositoryCard.css';
 import { useRepository } from "../../hooks/useRepository";
 import { LoadedRepository } from "../LoadedRepository/LoadedRepository";
+import { LoadingRepository } from '../LoadingRepository/LoadingRepository';
 
 export function RepositoryCard() {
 
@@ -11,7 +12,7 @@ export function RepositoryCard() {
         randomIndex,
         selectedLanguaje,
         languages,
-        /*loading*/ } = useRepository();
+        loading } = useRepository();
 
 
     return (
@@ -29,11 +30,21 @@ export function RepositoryCard() {
                 <div className="card__repository">
                     {repository && randomIndex !== null && 
                     
-                    <LoadedRepository
-                        randomIndex = {randomIndex}
-                        repository = {repository}
-                        selectedLanguaje = {selectedLanguaje}
-                    />}
+                    <>
+                        <LoadedRepository
+                            randomIndex = {randomIndex}
+                            repository = {repository}
+                            selectedLanguaje = {selectedLanguaje}
+                        />
+                    </>
+
+                    }
+
+                    {loading && 
+                    
+                    <LoadingRepository/>
+                    
+                    }
                 </div>
             </form>
         </>

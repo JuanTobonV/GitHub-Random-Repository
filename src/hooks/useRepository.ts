@@ -9,10 +9,11 @@ export function useRepository() {
     const [error, setError] = useState(false);
     const [selectedLanguaje, setSelectedLanguaje] = useState<string>('');
     const [randomIndex, setRandomIndex] = useState<number | null>(null);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         const fetchRepository = async () => {
+            setLoading(true);
             try {
                 const languagesResponse = await axios.get<ProgrammingLanguaje[]>('https://raw.githubusercontent.com/kamranahmedse/githunt/master/src/components/filters/language-filter/languages.json');
                 setLanguages(languagesResponse.data);
@@ -23,10 +24,11 @@ export function useRepository() {
             } catch (error) {
                 console.error(error);
                 setError(true);
+            } finally {
+                setLoading(false);
             }
         };
 
-        setLoading(false);
         fetchRepository();
     }, [selectedLanguaje]);
 

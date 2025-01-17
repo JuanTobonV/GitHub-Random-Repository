@@ -24,19 +24,19 @@
     width: 100%;
 }
 
-.card__repository{
+.card__repository, .card__repository--loading{
     background-color: rgb(243, 243, 243);
     position: relative;
     min-width: 100%;
     padding: 10px;
-    height: fit-content;
+    min-height: 140px;
     border-radius: 10px;
+    padding-bottom: 0px;
 
 }
 
 .card__repository h1{
     font-size: 1rem;
-    position: absolute;
     top: 0;
     margin: 0;
     margin-top: 10px;
@@ -61,7 +61,7 @@
     font-size: 1rem;
     font-weight: normal;
     color: rgb(167, 167, 167);
-    margin-top: 7%;
+    margin-top: 3px;
 }
 
 .languaje_circle{
@@ -95,3 +95,26 @@
     display: flex;
     justify-content: space-between;
 }
+
+.card__repository--loading{
+    
+    background: linear-gradient(90deg, rgba(250,250,250,1), rgb(200, 199, 199));
+    background-size: 400% 400%;
+    animation: loadingAnimation 3s ease-in-out infinite;
+    top: 0;
+    position: absolute;
+    right: 0;
+    height: 100%;
+}
+
+@keyframes loadingAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
