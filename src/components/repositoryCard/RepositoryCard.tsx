@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react";
 import { ProgrammingLanguaje } from "../../types/languajesTypes";
-import './repositoryCard.css'
 import { RepositoryDTO } from "../../DTO/repositoryDTO";
+
+import './repositoryCard.css'
 
 
 import axios from "axios";
+import { Item } from "../../types/repositoryType";
 
 export function RepositoryCard(){
 
     const [languages, setLanguages] = useState<ProgrammingLanguaje[]>([])
-    const [repository, setRepository] = useState([]);
-    
+    const [repository, setRepository] = useState<RepositoryDTO>();
     useEffect(() => {
         
        const fetchLanguajes = async () => {
@@ -21,8 +22,8 @@ export function RepositoryCard(){
         }
 
         async function fetchRepository() {
-            const {data} = await axios.get('https://api.github.com/search/repositories?q=language:javascript&sort=stars&order=desc&per_page=1')
-            setRepository(data.items[0]);
+            const {data} = await axios.get<Item>('https://api.github.com/search/repositories?q=language:javascript&sort=stars&order=desc&per_page=1')
+           setRepository(data);
         } 
 
         fetchLanguajes();
@@ -34,9 +35,11 @@ export function RepositoryCard(){
 
     return (
         <> 
-            <section>
-                <h4>Github Repository Finder</h4>
-                <form action="">
+            
+                <form className="card" action="">
+
+                    <label>Github Repository Finder</label>
+
                     <select name="" id="">
                         {languages.map((language) => (
                             <option value={language.value}>{language.title}</option>
@@ -44,10 +47,10 @@ export function RepositoryCard(){
                     </select>
 
                     <div>
-                        {<p>{repository.name}</p>}
+
                     </div>
                 </form>
-            </section>
+            
         </>
     )
 

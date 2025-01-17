@@ -1,12 +1,15 @@
 
 import './App.css'
 import { RepositoryCard} from './components/repositoryCard/RepositoryCard'
+import { AppUi } from './components/AppUI/AppUi'
 
 function App() {
 
   return (
     <>
-      <RepositoryCard/>
+      <AppUi>
+        <RepositoryCard/>
+      </AppUi>
     </>
   )
 }
