@@ -12,12 +12,13 @@ export function RepositoryCard() {
         randomIndex,
         selectedLanguaje,
         languages,
-        loading } = useRepository();
+        loading,
+         } = useRepository();
 
 
     return (
         <>
-            <form className="card" action="">
+            <form className="card"  action="">
                 <label>Github Repository Finder</label>
                 <select value={selectedLanguaje} onChange={(e) => setSelectedLanguaje(e.target.value)}>
                     {languages.map((language) => (
@@ -31,11 +32,15 @@ export function RepositoryCard() {
                     {repository && randomIndex !== null && 
                     
                     <>
-                        <LoadedRepository
-                            randomIndex = {randomIndex}
-                            repository = {repository}
-                            selectedLanguaje = {selectedLanguaje}
-                        />
+                        <div className='card__loaded' >
+                            <LoadedRepository
+                                randomIndex = {randomIndex}
+                                repository = {repository}
+                                selectedLanguaje = {selectedLanguaje}
+                            />
+                        
+
+                        </div >
                     </>
 
                     }
@@ -46,6 +51,13 @@ export function RepositoryCard() {
                     
                     }
                 </div>
+
+                {repository && randomIndex !== null &&
+                    <div className='card__loaded'>
+                        <button >Recargar</button>
+                    </div>
+                
+                }
             </form>
         </>
     );
